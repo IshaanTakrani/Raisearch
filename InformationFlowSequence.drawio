@@ -94,7 +94,7 @@
             <mxPoint x="310" y="530" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jwMw41EVvAKdRjvvJQYE-37" value="generateReport(Web Scraper: scraper)" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="jwMw41EVvAKdRjvvJQYE-36">
+        <mxCell id="jwMw41EVvAKdRjvvJQYE-37" value="generateSummary(Web Scraper: scraper)" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="jwMw41EVvAKdRjvvJQYE-36">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="45" y="5" as="offset" />
           </mxGeometry>
