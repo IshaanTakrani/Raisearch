@@ -1,13 +1,12 @@
-// src/app/api/search/route.ts
+import { parsePdf } from '@/lib/parse_pdf';
 import { NextRequest, NextResponse } from 'next/server';
-import { searchGoogle } from '@/lib/search';
 
 export async function GET(req: NextRequest) {
 	try {
-		const results = await searchGoogle('requirements engineering');
-		return NextResponse.json({
-			response: results,
-		});
+		let content = await parsePdf(
+			'https://www.cs.toronto.edu/~sme/papers/2004/FoRE-chapter01-v7.pdf'
+		);
+		return NextResponse.json(content);
 	} catch (e) {
 		return NextResponse.json({ error: (e as Error).message }, { status: 500 });
 	}

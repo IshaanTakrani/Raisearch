@@ -11,7 +11,7 @@ export async function searchGoogle(query: string) {
 	const res = await fetch(
 		`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(
 			query
-		)}`
+		)}&fileType=pdf`
 	);
 	const data = await res.json();
 	return data.items;
