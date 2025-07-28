@@ -4,17 +4,15 @@ dotenv.config({ path: '.env.local' }); // specify .env.local explicitly
 const API_KEY = process.env.GOOGLE_SEARCH_KEY;
 const CX = process.env.GOOGLE_SEARCH_CX;
 
-console.log('GOOGLE_SEARCH_KEY:', API_KEY);
-console.log('GOOGLE_SEARCH_CX:', CX);
-
-export async function searchGoogle(query: string) {
-	const res = await fetch(
-		`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(
-			query
-		)}&fileType=pdf`
-	);
-	const data = await res.json();
-	return data.items;
+export async function getFirstPdfUrl(query: string): Promise<string> {
+	// const res = await fetch(
+	// 	`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(
+	// 		query
+	// 	)}&fileType=pdf`
+	// );
+	// const data = await res.json();
+	// return data.items[0].link;
+	return 'http://web.eecs.umich.edu/~weimerw/2022-481F/readings/requirements.pdf';
 }
 
 // searchGoogle('requirements engineering').then((res) => {

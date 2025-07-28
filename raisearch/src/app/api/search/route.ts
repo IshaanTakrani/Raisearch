@@ -1,10 +1,10 @@
 // src/app/api/search/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { searchGoogle } from '@/lib/search';
+import { getFirstPdfUrl } from '@/lib/search';
 
 export async function GET(req: NextRequest) {
 	try {
-		const results = await searchGoogle('requirements engineering');
+		const results = await getFirstPdfUrl('Requirements Elicitation Techniques');
 		return NextResponse.json({
 			response: results,
 		});
@@ -12,3 +12,8 @@ export async function GET(req: NextRequest) {
 		return NextResponse.json({ error: (e as Error).message }, { status: 500 });
 	}
 }
+
+/*
+
+
+*/
