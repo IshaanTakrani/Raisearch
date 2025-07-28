@@ -1,8 +1,6 @@
 import { GoogleGenAI, Type } from '@google/genai';
 
-export async function generateTopics(
-	prompt: string
-): Promise<string | null | undefined> {
+export async function generateTopics(prompt: string): Promise<Object> {
 	const ai = new GoogleGenAI({
 		apiKey: process.env.GEMINI_API_KEY,
 	});
@@ -56,7 +54,5 @@ export async function generateTopics(
 		contents,
 	});
 	let fileIndex = 0;
-	return response.text;
+	return JSON.parse(response.text ?? '');
 }
-
-console.log(generateTopics('requirements engineering'));

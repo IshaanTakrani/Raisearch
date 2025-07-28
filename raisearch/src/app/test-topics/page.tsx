@@ -12,7 +12,7 @@ export default function SimplePostPage() {
 			prompt: formData.get('prompt') as string,
 		};
 
-		const res = await fetch('/api/simple', {
+		const res = await fetch('/api/topics', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -21,8 +21,6 @@ export default function SimplePostPage() {
 		});
 
 		const result = await res.json();
-		setResponse(result);
-		console.log(result);
 	};
 
 	return (
