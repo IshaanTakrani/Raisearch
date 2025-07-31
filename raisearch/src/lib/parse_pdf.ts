@@ -1,6 +1,6 @@
 import pdf from 'pdf-parse';
 
-export async function parsePdf(url: string): Promise<string | unknown> {
+export async function parsePdf(url: string): Promise<string> {
 	try {
 		const response = await fetch(url);
 		const buffer = await response.arrayBuffer();
