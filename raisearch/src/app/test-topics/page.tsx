@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 export default function SimplePostPage() {
-	const [response, setResponse] = useState(null);
+	const [response, setResponse] = useState('');
 
 	const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -21,11 +21,12 @@ export default function SimplePostPage() {
 		});
 
 		const result = await res.json();
+		setResponse(JSON.stringify(result, null, 2));
 	};
 
 	return (
 		<div>
-			<h1>Simple POST Request</h1>
+			<h1>Enter your topic below:</h1>
 			<form onSubmit={handleSubmit}>
 				<div>
 					<label>Prompt:</label>
@@ -34,6 +35,9 @@ export default function SimplePostPage() {
 
 				<button type="submit">Submit</button>
 			</form>
+			<pre style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
+				{response}
+			</pre>
 		</div>
 	);
 }

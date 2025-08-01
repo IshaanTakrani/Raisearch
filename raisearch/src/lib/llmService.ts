@@ -36,7 +36,7 @@ export async function generateTopics(prompt: string): Promise<Object> {
 			},
 		],
 	};
-	const model = 'gemini-2.0-flash';
+	const model = 'gemini-2.5-flash-lite';
 	const contents = [
 		{
 			role: 'user',
@@ -53,7 +53,7 @@ export async function generateTopics(prompt: string): Promise<Object> {
 		config,
 		contents,
 	});
-	let fileIndex = 0;
+
 	return JSON.parse(response.text ?? '');
 }
 
@@ -62,9 +62,6 @@ export async function generateTitle(prompt: string): Promise<string> {
 		apiKey: process.env.GEMINI_API_KEY,
 	});
 	const config = {
-		thinkingConfig: {
-			thinkingBudget: -1,
-		},
 		responseMimeType: 'application/json',
 		systemInstruction: [
 			{
@@ -72,7 +69,7 @@ export async function generateTitle(prompt: string): Promise<string> {
 			},
 		],
 	};
-	const model = 'gemini-2.0-flash-lite';
+	const model = 'gemini-2.5-flash-lite';
 	const contents = [
 		{
 			role: 'user',
@@ -94,7 +91,7 @@ export async function generateTitle(prompt: string): Promise<string> {
 
 // generateSection
 
-async function generateSection() {
+export async function generateSection(prompt: string): Promise<string> {
 	const ai = new GoogleGenAI({
 		apiKey: process.env.GEMINI_API_KEY,
 	});
@@ -123,8 +120,8 @@ Here is your job: You must generate a paragraph of the research paper, on the la
 for this paragraph, you must use only the information in the dataBank, if some data must be added, you may add your own, but the information in the dataBank must be what the paragraph is based on
 You must be aware of the research paper so far. You may refer back to previous sections of it if you wish, but do not restate informaiton that is already in the cumulativePaper string
 
-Your paragraph should be in this format:
-topic\\n\\tparagraph body
+Do not include the topic at the beginning of the section. Only the string of the paragraph.
+
 `,
 			},
 		],
@@ -135,19 +132,16 @@ topic\\n\\tparagraph body
 			role: 'user',
 			parts: [
 				{
-					text: `INSERT_INPUT_HERE`,
+					text: `${prompt}`,
 				},
 			],
 		},
 	];
 
-	const response = await ai.models.generateContentStream({
+	const response = await ai.models.generateContent({
 		model,
 		config,
 		contents,
 	});
-	let fileIndex = 0;
-	for await (const chunk of response) {
-		console.log(chunk.text);
-	}
+	return response.text ?? '';
 }
