@@ -1,7 +1,9 @@
+import React from 'react';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
+import PaperForm from '@/components/PaperForm/PaperForm';
 
-export default async function PrivatePage() {
+async function Dashboard() {
 	const supabase = await createClient();
 
 	const { data, error } = await supabase.auth.getUser();
@@ -9,5 +11,12 @@ export default async function PrivatePage() {
 		redirect('/login');
 	}
 
-	return <p>Hello {data.user.id}</p>;
+	return (
+		<>
+			<PaperForm></PaperForm>
+			<div>welcome, {data.user.email}</div>
+		</>
+	);
 }
+
+export default Dashboard;
