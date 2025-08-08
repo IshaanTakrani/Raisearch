@@ -22,6 +22,8 @@ input {
 } */
 
 @theme inline {
+	--signature-orange: #e03d0b;
+
 	--radius-sm: calc(var(--radius) - 4px);
 
 	--radius-md: calc(var(--radius) - 2px);

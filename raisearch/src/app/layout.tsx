@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Lexend } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/ModeToggle';
+import HorizontalNav from '@/components/HorizontalNav';
 import './globals.css';
 
 const geistSans = Geist({
@@ -11,6 +12,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
 	variable: '--font-geist-mono',
+	subsets: ['latin'],
+});
+
+const lexend = Lexend({
+	variable: '--font-lexend',
 	subsets: ['latin'],
 });
 
@@ -26,17 +32,18 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
+			<body className={`${lexend.variable} antialiased`}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
 				>
+					<HorizontalNav></HorizontalNav>
 					{children}
-					<ModeToggle></ModeToggle>
+					<div className="fixed bottom-0 right-0 p-4">
+						<ModeToggle></ModeToggle>
+					</div>
 				</ThemeProvider>
 			</body>
 		</html>
