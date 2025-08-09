@@ -1,9 +1,12 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
-import PaperForm from '@/components/PaperForm/PaperForm';
 
-async function Dashboard() {
+export default async function Page({
+	params,
+}: {
+	params: { user_id: string; paper_id: string };
+}) {
 	const supabase = await createClient();
 
 	const { data, error } = await supabase.auth.getUser();
@@ -11,12 +14,14 @@ async function Dashboard() {
 		redirect('/login');
 	}
 
+	if (data.user.id !== params.user_id) {
+		redirect('/login');
+	}
+
 	return (
 		<>
-			<PaperForm></PaperForm>
-			<div>welcome, {data.user.email}</div>
+			<div>{params.user_id}</div>
+			<div>{params.paper_id}</div>
 		</>
 	);
 }
-
-export default Dashboard;

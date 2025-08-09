@@ -57,25 +57,50 @@ export async function generateTopics(prompt: string): Promise<Object> {
 	return JSON.parse(response.text ?? '');
 }
 
+// export async function generateTitle(prompt: string): Promise<string> {
+// 	const ai = new GoogleGenAI({
+// 		apiKey: process.env.GEMINI_API_KEY,
+// 	});
+// 	const config = {
+// 		responseMimeType: 'application/json',
+// 		systemInstruction: [
+// 			{
+// 				text: `Given a topic and subtopics, generate a title for a research paper based on the topic and subtopics. No other formarring, nothing at all, just the title as a string`,
+// 			},
+// 		],
+// 	};
+// 	const model = 'gemini-2.5-flash-lite';
+// 	const contents = [
+// 		{
+// 			role: 'user',
+// 			parts: [
+// 				{
+// 					text: `${prompt}`,
+// 				},
+// 			],
+// 		},
+// 	];
+
+// 	const response = await ai.models.generateContent({
+// 		model,
+// 		config,
+// 		contents,
+// 	});
+// 	return response.text ?? '';
+// }
+
 export async function generateTitle(prompt: string): Promise<string> {
 	const ai = new GoogleGenAI({
 		apiKey: process.env.GEMINI_API_KEY,
 	});
-	const config = {
-		responseMimeType: 'application/json',
-		systemInstruction: [
-			{
-				text: `Given a topic and subtopics, generate a title for a research paper based on the topic and subtopics`,
-			},
-		],
-	};
-	const model = 'gemini-2.5-flash-lite';
+	const config = {};
+	const model = 'gemma-3-12b-it';
 	const contents = [
 		{
 			role: 'user',
 			parts: [
 				{
-					text: `${prompt}`,
+					text: `Given a topic and subtopics, generate a title for a research paper based on the topic and subtopics. No other formarring, nothing at all, just the title as a string ${prompt}`,
 				},
 			],
 		},
@@ -133,6 +158,31 @@ Do not include the topic at the beginning of the section. Only the string of the
 			parts: [
 				{
 					text: `${prompt}`,
+				},
+			],
+		},
+	];
+
+	const response = await ai.models.generateContent({
+		model,
+		config,
+		contents,
+	});
+	return response.text ?? '';
+}
+
+export async function generateSummary(paperContent: string): Promise<string> {
+	const ai = new GoogleGenAI({
+		apiKey: process.env.GEMINI_API_KEY,
+	});
+	const config = {};
+	const model = 'gemma-3-12b-it';
+	const contents = [
+		{
+			role: 'user',
+			parts: [
+				{
+					text: `Given a research paper, summarize it in no more than 2 sentences, 20 words. DO NOT inclide any text other than the summary, nothing else at all, no boilerplate, just the summary. Paper: ${paperContent}`,
 				},
 			],
 		},

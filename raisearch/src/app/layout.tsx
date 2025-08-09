@@ -32,13 +32,14 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={`${lexend.variable} antialiased`}>
+			<body>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
 				>
+					<div className="mb-25"></div>
 					<HorizontalNav></HorizontalNav>
 					{children}
 					<div className="fixed bottom-0 right-0 p-4">

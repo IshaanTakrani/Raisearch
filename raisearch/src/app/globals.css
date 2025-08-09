@@ -96,6 +96,8 @@ input {
 }
 
 :root {
+	--green: #2b9032;
+
 	--radius: 0.625rem;
 
 	--card: oklch(1 0 0);

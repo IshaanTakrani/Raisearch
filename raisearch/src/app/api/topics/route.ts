@@ -3,6 +3,7 @@ import {
 	generateTopics,
 	generateTitle,
 	generateSection,
+	generateSummary,
 } from '@/lib/llmService';
 import { getFirstPdfUrl } from '@/lib/search';
 import { parsePdf } from '@/lib/parse_pdf';
@@ -24,7 +25,9 @@ export async function POST(req: NextRequest) {
 		links: string[];
 		dataBank: string[];
 		cumulativePaper: string;
+		summary: string;
 	}
+
 	interface sectionInfo {
 		title: string;
 		currTopic: string;
@@ -38,13 +41,16 @@ export async function POST(req: NextRequest) {
 		const generatedTitle = await generateTitle(
 			`Topic:${body.prompt} Subtopics: ${topics.toString()}`
 		);
+		console.log('GENERATED TITLE: ', generatedTitle);
 		let paperInfo: paperInfo = {
 			title: generatedTitle,
 			topics: topics,
 			links: [],
 			dataBank: [],
 			cumulativePaper: '',
+			summary: '',
 		};
+
 		let sectionInfo: sectionInfo = {
 			title: generatedTitle,
 			currTopic: '',
@@ -63,6 +69,9 @@ export async function POST(req: NextRequest) {
 		}
 		sectionInfo.currDataBank = '';
 		console.log(sectionInfo);
+
+		let summary = await generateSummary(paperInfo.cumulativePaper);
+		paperInfo.summary = summary;
 
 		await addPaper(data.user.id, paperInfo);
 		return NextResponse.json(paperInfo);
