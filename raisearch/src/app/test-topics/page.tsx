@@ -25,7 +25,7 @@ export default function SimplePostPage() {
 	};
 
 	return (
-		<div>
+		<div className="mt-50">
 			<h1>Enter your topic below:</h1>
 			<form onSubmit={handleSubmit}>
 				<div>

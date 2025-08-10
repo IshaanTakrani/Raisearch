@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 		topics: string[];
 		links: string[];
 		dataBank: string[];
-		cumulativePaper: string;
+		cumulativePaper: string[];
 		summary: string;
 	}
 
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
 			topics: topics,
 			links: [],
 			dataBank: [],
-			cumulativePaper: '',
+			cumulativePaper: [],
 			summary: '',
 		};
 
@@ -63,14 +63,14 @@ export async function POST(req: NextRequest) {
 			paperInfo.dataBank.push(await parsePdf(paperInfo.links[i]));
 			sectionInfo.currDataBank = await parsePdf(paperInfo.links[i]);
 			let section = await generateSection(JSON.stringify(sectionInfo));
-			paperInfo.cumulativePaper += `${section}\n`;
+			paperInfo.cumulativePaper.push(section);
 			sectionInfo.cumulativePaper += `${section}\n`;
 			console.log(section);
 		}
 		sectionInfo.currDataBank = '';
 		console.log(sectionInfo);
 
-		let summary = await generateSummary(paperInfo.cumulativePaper);
+		let summary = await generateSummary(paperInfo.cumulativePaper.toString());
 		paperInfo.summary = summary;
 
 		await addPaper(data.user.id, paperInfo);
