@@ -12,7 +12,7 @@ async function Dashboard(props: { params: Params }) {
 	const params = await props.params;
 
 	const { data, error } = await supabase.auth.getUser();
-	if (error || !data?.user || data.user.id != params.user_id) {
+	if (error || !data?.user) {
 		redirect('/login');
 	}
 
@@ -23,19 +23,9 @@ async function Dashboard(props: { params: Params }) {
 	let papers = await getPapers(data.user.id);
 	console.log(papers);
 
-	return (
-		<div className="flex-col justify-center align-middle w-full px-30">
-			<div className="mt-20 flex-col">
-				<p className="text-5xl text-primary m-10 my-5 mt-30">My Papers</p>
+	redirect(`/dashboard/e63123be-5e38-4cda-84b9-e915b47a446e`);
 
-				<p className="text-[var(--green)] m-10 my-5">
-					All your papers, in one place
-				</p>
-			</div>
-
-			<PapersTable papers={papers ?? []}></PapersTable>
-		</div>
-	);
+	return <></>;
 }
 
 export default Dashboard;

@@ -2,19 +2,15 @@ import React from 'react';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
 
-export default async function Page({
-	params,
-}: {
-	params: { user_id: string; paper_id: string };
-}) {
+type Params = Promise<{ user_id: string; paper_id: string }>;
+
+export default async function Paper(props: { params: Params }) {
 	const supabase = await createClient();
+
+	const params = await props.params;
 
 	const { data, error } = await supabase.auth.getUser();
 	if (error || !data?.user) {
-		redirect('/login');
-	}
-
-	if (data.user.id !== params.user_id) {
 		redirect('/login');
 	}
 

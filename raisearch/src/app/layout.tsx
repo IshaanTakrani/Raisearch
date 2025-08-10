@@ -39,7 +39,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<div className="mb-25"></div>
+					{/* <div className="mb-25"></div> */}
 					<HorizontalNav></HorizontalNav>
 					{children}
 					<div className="fixed bottom-0 right-0 p-4">
