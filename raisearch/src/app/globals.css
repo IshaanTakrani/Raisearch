@@ -96,9 +96,9 @@ input {
 }
 
 :root {
-	--green: #2b9032;
-
 	--radius: 0.625rem;
+
+	--green: #1b5c1f;
 
 	--card: oklch(1 0 0);
 
@@ -164,6 +164,8 @@ input {
 }
 
 .dark {
+	--green: #91bb93;
+
 	--background: oklch(0.129 0.042 264.695);
 
 	--foreground: oklch(0.984 0.003 247.858);

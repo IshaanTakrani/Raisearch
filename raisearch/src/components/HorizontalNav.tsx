@@ -9,17 +9,16 @@ function HorizontalNav() {
 
 			<div className="flex gap-4">
 				<Link href={'/dashboard'}>
-					<button className="p-2 px-5 rounded-lg transition duration-100 ease-in-out hover:cursor-pointer border hover:border-[var(--primary)]">
-						Dashboard
+					<button className="p-2 px-5 rounded-lg transition duration-100 ease-in-out hover:cursor-pointer border hover:border-[var(--green)]">
+						My Papers
 					</button>
 				</Link>
 
-				<button className="p-2 px-5 rounded-lg transition duration-100 ease-in-out hover:cursor-pointer border hover:border-[var(--primary)]">
-					My Papers
-				</button>
-				<button className="p-2 px-5 rounded-lg transition duration-100 ease-in-out border border-solid border-[var(--primary)] hover:cursor-pointer bg-[var(--primary)] text-[var(--background)] hover:bg-[var(--background)] hover:text-[var(--primary)]">
-					Make a Paper
-				</button>
+				<Link href={'/test-topics'}>
+					<button className="p-2 px-5 rounded-lg transition duration-100 ease-in-out border border-solid border-[var(--green)] hover:cursor-pointer bg-[var(--green)] text-[var(--background)] hover:bg-[var(--background)] hover:text-[var(--green)]">
+						Make a Paper
+					</button>
+				</Link>
 			</div>
 		</div>
 	);

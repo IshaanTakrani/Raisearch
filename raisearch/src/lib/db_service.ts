@@ -26,11 +26,13 @@ export async function addPaper(user_id: string, paperData: paperInfo) {
 		const { error } = await supabase.from('papers').insert({
 			user_id: user_id,
 			title: paperData.title,
-			topics: { topicsObject: paperData.topics },
-			dataBank: { dataBankObject: paperData.dataBank },
-			cumulativePaper: { cumulativePaperObject: paperData.cumulativePaper },
+			topicsObject: { topics: paperData.topics },
+			dataBankObject: { dataBank: paperData.dataBank },
+			cumulativePaperObject: {
+				cumulativePaper: paperData.cumulativePaper,
+			},
 			summary: paperData.summary,
-			links: { linksObject: paperData.links },
+			linksObject: { links: paperData.links },
 			formattedPaper: paperData.formattedPaper,
 		});
 
