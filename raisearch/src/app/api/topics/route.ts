@@ -26,6 +26,7 @@ export async function POST(req: NextRequest) {
 		dataBank: string[];
 		cumulativePaper: string[];
 		summary: string;
+		formattedPaper: string;
 	}
 
 	interface sectionInfo {
@@ -41,7 +42,7 @@ export async function POST(req: NextRequest) {
 		const generatedTitle = await generateTitle(
 			`Topic:${body.prompt} Subtopics: ${topics.toString()}`
 		);
-		console.log('GENERATED TITLE: ', generatedTitle);
+
 		let paperInfo: paperInfo = {
 			title: generatedTitle,
 			topics: topics,
@@ -49,6 +50,7 @@ export async function POST(req: NextRequest) {
 			dataBank: [],
 			cumulativePaper: [],
 			summary: '',
+			formattedPaper: '',
 		};
 
 		let sectionInfo: sectionInfo = {
@@ -68,12 +70,24 @@ export async function POST(req: NextRequest) {
 			console.log(section);
 		}
 		sectionInfo.currDataBank = '';
-		console.log(sectionInfo);
 
 		let summary = await generateSummary(paperInfo.cumulativePaper.toString());
 		paperInfo.summary = summary;
 
+		let paperAsString: string = '';
+
+		for (let i = 0; i < paperInfo.topics.length; i++) {
+			paperAsString += `<b>${paperInfo.topics[i]}</b>`;
+			paperAsString += '\n\n';
+			paperAsString += paperInfo.cumulativePaper[i];
+			paperAsString += '\n\n';
+		}
+
+		paperInfo.formattedPaper = paperAsString;
+		console.log('FORMATTED PAPER: ', paperInfo.formattedPaper);
+
 		await addPaper(data.user.id, paperInfo);
+
 		return NextResponse.json(paperInfo);
 	} catch (e) {
 		console.log(e);

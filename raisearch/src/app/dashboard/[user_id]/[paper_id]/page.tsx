@@ -5,27 +5,31 @@ import { getPaper } from '@/lib/db_service';
 import TextViewer from '@/components/TextViewer';
 import { Button } from '@/components/ui/button';
 
-interface paperData {
-	title: string;
-	topics: string[];
-	links: string[];
-	dataBank: string[];
+type CumulativePaper = {
 	cumulativePaper: string[];
-	summary: string;
-}
+};
+
+type Topics = {
+	topics: string[];
+};
 
 type Paper = {
 	id: number;
 	created_at: string;
 	user_id: string;
-	paperData: paperData;
+	title: string;
+	topicsObject: Topics;
+	linksObject: Object;
+	dataBankObject: Object;
+	cumulativePaperObject: CumulativePaper;
+	summary: string;
+	formattedPaper: string;
 };
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
 async function handleSave() {
 	const supabase = await createClient();
-	// await supabase.upda
 }
 
 export default async function Paper(props: { params: Params }) {
@@ -39,7 +43,6 @@ export default async function Paper(props: { params: Params }) {
 	}
 
 	let paper: Paper = await getPaper(data.user.id, params.paper_id);
-	console.log(paper);
 
 	// for (let i = 0; i < paper.paperData.topics.length; i++) {
 	// 	console.log(paper.paperData.topics[i]);
@@ -61,15 +64,15 @@ export default async function Paper(props: { params: Params }) {
 				{/* <p className="whitespace-pre-wrap">{paperAsString}</p> */}
 				{/* <pre style={{ whiteSpace: 'pre-wrap' }}>{paperAsString}</pre> */}
 				<div className="w-1/2 m-5 p-5">
-					<p className="text-3xl p-5 mb-5">{paper.paperData.title}</p>
+					<p className="text-3xl p-5 mb-5">{paper.title}</p>
 					<TextViewer
-						cumulativePaper={paper.paperData.cumulativePaper}
-						topics={paper.paperData.topics}
+						user_id={data.user.id}
+						formattedPaper={paper.formattedPaper}
+						id={paper.id.toString()}
 					></TextViewer>
 				</div>
 				<div className="w-1/2 m-5 p-5">
-					<p className="text-3xl p-5 mb-5">{paper.paperData.title}</p>
-					<Button onClick={handleSave}>Save</Button>
+					<p className="text-3xl p-5 mb-5">{paper.title}</p>
 				</div>
 			</div>
 		</div>

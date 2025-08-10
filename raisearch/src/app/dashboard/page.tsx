@@ -21,7 +21,6 @@ async function Dashboard(props: { params: Params }) {
 	// }
 
 	let papers = await getPapers(data.user.id);
-	console.log(papers);
 
 	redirect(`/dashboard/e63123be-5e38-4cda-84b9-e915b47a446e`);
 

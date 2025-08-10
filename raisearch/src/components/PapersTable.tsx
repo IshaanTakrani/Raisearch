@@ -6,20 +6,18 @@ import Link from 'next/link';
 import path from 'path';
 import { usePathname } from 'next/navigation';
 
-interface paperData {
-	title: string;
-	topics: string[];
-	links: string[];
-	dataBank: string[];
-	cumulativePaper: string;
-	summary: string;
-}
+interface paperData {}
 
 type Paper = {
 	id: number;
 	created_at: string;
 	user_id: string;
-	paperData: paperData;
+	title: string;
+	topicsObject: Object;
+	linksObject: Object;
+	dataBankObject: Object;
+	cumulativePaperObject: Object;
+	summary: string;
 };
 
 interface PapersTableProps {
@@ -47,10 +45,10 @@ function PapersTable({ papers }: PapersTableProps) {
 					{papers.map((paper) => (
 						<tr key={paper.id} className="border-t border-t-border">
 							<td className="h-15 px-4 py-6 w-1/4 text-primary text-md font-normal leading-normal">
-								{paper.paperData.title}
+								{paper.title}
 							</td>
 							<td className="h-15 px-4 py-6 w-2/4 text-sm text-[var(--green)] font-normal leading-normal">
-								{paper.paperData.summary}
+								{paper.summary}
 							</td>
 							<td className="h-15 px-4 py-6 w-1/4 text-[var(--green)] text-sm font-bold leading-normal tracking-[0.015em]">
 								<Link href={`${usePathname()}/${paper.id}`}>

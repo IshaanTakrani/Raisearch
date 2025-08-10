@@ -1,46 +1,58 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Textarea } from './ui/textarea';
+import { updatePaper } from '@/lib/db_service';
 
 interface TextViewerProps {
-	cumulativePaper: string[];
-	topics: string[];
+	user_id: string;
+	formattedPaper: string;
+	id: string;
 }
 
 export default function TextViewer({
-	cumulativePaper,
-	topics,
+	formattedPaper,
+	id,
+	user_id,
 }: TextViewerProps) {
-	let paperAsString: string = '';
+	const [text, setText] = useState(
+		formattedPaper.replace(/\\n/g, '\n').replace(/\\"/g, '"')
+	);
+	const divRef = useRef<HTMLDivElement>(null);
 
-	for (let i = 0; i < topics.length; i++) {
-		paperAsString += topics[i];
-		paperAsString += '\n';
-		paperAsString += cumulativePaper[i];
-		paperAsString += '\n\n';
-	}
-
-	const [text, setText] = useState(paperAsString);
-	const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-	// Adjust height on every text change
 	useEffect(() => {
-		if (textareaRef.current) {
-			textareaRef.current.style.height = 'auto'; // reset to shrink if needed
-			textareaRef.current.style.height =
-				textareaRef.current.scrollHeight + 'px';
+		if (divRef.current) {
+			divRef.current.innerHTML = text.replace(/\n/g, '<br>');
 		}
-	}, [text]);
+	}, []);
+
+	const handleInput = (e: React.FormEvent<HTMLDivElement>) => {
+		setText(e.currentTarget.innerHTML);
+	};
+
+	async function handlePrintText() {
+		try {
+			console.log(text);
+			await updatePaper(user_id, id, text);
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
 	return (
 		<div className="text-xl">
-			<textarea
-				ref={textareaRef}
-				value={text}
-				onChange={(e) => setText(e.target.value)}
-				className="w-full p-5 border-border border-solid border-1 rounded-lg resize-none text-[1em] field-sizing-content"
+			<div
+				ref={divRef}
+				contentEditable
+				className="w-full p-5 border rounded-lg min-h-[200px] outline-none"
+				onInput={handleInput}
+				suppressContentEditableWarning
 			/>
+			<button
+				onClick={handlePrintText}
+				className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-300"
+			>
+				Print Text
+			</button>
 		</div>
 	);
 }
