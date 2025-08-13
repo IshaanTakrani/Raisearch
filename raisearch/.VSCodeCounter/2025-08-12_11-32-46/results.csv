@@ -1,0 +1,63 @@
+"filename", "language", "TypeScript", "Markdown", "JSON", "Draw.io", "JSON with Comments", "TypeScript JSX", "XML", "CSS", "JavaScript", "comment", "blank", "total"
+"/home/ishaan/Documents/projects/Raisearch/raisearch/README.md", "Markdown", 0, 5, 0, 0, 0, 0, 0, 0, 0, 22, 3, 30
+"/home/ishaan/Documents/projects/Raisearch/raisearch/components.json", "JSON", 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 1, 22
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/activity_generate_paper.drawio", "Draw.io", 0, 0, 0, 77, 0, 0, 0, 0, 0, 0, 0, 77
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/architecture.drawio", "Draw.io", 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 51
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/interaction.drawio", "Draw.io", 0, 0, 0, 93, 0, 0, 0, 0, 0, 0, 0, 93
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/usecase_generate_essay.md", "Markdown", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/home/ishaan/Documents/projects/Raisearch/raisearch/next.config.ts", "TypeScript", 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 8
+"/home/ishaan/Documents/projects/Raisearch/raisearch/package-lock.json", "JSON", 0, 0, 3236, 0, 0, 0, 0, 0, 0, 0, 1, 3237
+"/home/ishaan/Documents/projects/Raisearch/raisearch/package.json", "JSON", 0, 0, 43, 0, 0, 0, 0, 0, 0, 0, 1, 44
+"/home/ishaan/Documents/projects/Raisearch/raisearch/paperInfo.json", "JSON", 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 22
+"/home/ishaan/Documents/projects/Raisearch/raisearch/postcss.config.mjs", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 6
+"/home/ishaan/Documents/projects/Raisearch/raisearch/public/file.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/public/globe.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/public/next.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/public/vercel.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/public/window.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/actions.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/pdf-content/route.ts", "TypeScript", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/pdf_from_search/route.ts", "TypeScript", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/search/route.ts", "TypeScript", 12, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3, 20
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/topics/route.ts", "TypeScript", 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 97
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/auth/confirm/route.ts", "TypeScript", 21, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6, 29
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/create-paper/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 9, 3, 27
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/dashboard/[user_id]/[paper_id]/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 62, 0, 0, 0, 3, 11, 76
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/dashboard/[user_id]/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 29, 0, 0, 0, 3, 10, 42
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/dashboard/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 19, 0, 0, 0, 3, 9, 31
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/error/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 4, 22
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/globals.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 125, 0, 12, 107, 244
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 46, 0, 0, 0, 1, 6, 53
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/login/actions.ts", "TypeScript", 18, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 28
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/login/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 61, 0, 0, 0, 8, 2, 71
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 3, 8
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/private/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 4, 14
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/signup/actions.ts", "TypeScript", 18, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 28
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/signup/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 55, 0, 0, 0, 8, 2, 65
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/test-topics/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 8, 44
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/HorizontalNav.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 5, 28
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ModeToggle.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 5, 41
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/PaperForm/PaperForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 5, 23
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/PapersTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 61, 0, 0, 0, 0, 6, 67
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/PromptSubmissionForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 96, 0, 0, 0, 5, 10, 111
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/TextViewer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 62, 0, 0, 0, 0, 12, 74
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/theme-provider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 3, 12
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/button.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 6, 60
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/card.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 83, 0, 0, 0, 0, 10, 93
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/dropdown-menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 239, 0, 0, 0, 0, 19, 258
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/input.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 4, 22
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/label.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 5, 25
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/navigation-menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 157, 0, 0, 0, 0, 12, 169
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/sonner.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 5, 26
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/textarea.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 4, 19
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/db_service.ts", "TypeScript", 90, 0, 0, 0, 0, 0, 0, 0, 0, 27, 17, 134
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/llmService.ts", "TypeScript", 150, 0, 0, 0, 0, 0, 0, 0, 0, 31, 17, 198
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/parse_pdf.ts", "TypeScript", 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 14
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/search.ts", "TypeScript", 13, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 21
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/utils.ts", "TypeScript", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/middleware.ts", "TypeScript", 10, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 20
+"/home/ishaan/Documents/projects/Raisearch/raisearch/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 1, 34
+"/home/ishaan/Documents/projects/Raisearch/raisearch/utils/supabase/client.ts", "TypeScript", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"/home/ishaan/Documents/projects/Raisearch/raisearch/utils/supabase/middleware.ts", "TypeScript", 42, 0, 0, 0, 0, 0, 0, 0, 0, 17, 9, 68
+"/home/ishaan/Documents/projects/Raisearch/raisearch/utils/supabase/server.ts", "TypeScript", 24, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 30
+"Total", "-", 537, 6, 3322, 221, 33, 1268, 5, 125, 4, 175, 396, 6092
