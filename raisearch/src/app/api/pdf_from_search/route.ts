@@ -13,5 +13,7 @@ export async function GET(req: NextRequest) {
 			},
 			{ status: 200 }
 		);
-	} catch (e) {}
+	} catch (e) {
+		return NextResponse.json({ error: e }, { status: 200 });
+	}
 }

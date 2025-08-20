@@ -195,3 +195,41 @@ export async function generateSummary(paperContent: string): Promise<string> {
 	});
 	return response.text ?? '';
 }
+
+async function get_info_from_sources(databank: string) {
+	const ai = new GoogleGenAI({
+		apiKey: process.env.GEMINI_API_KEY,
+	});
+	const config = {
+		systemInstruction: [
+			{
+				text: `You are an assistant to help individuals create research papers.
+				When asked a question, you must look ONLY in the 'databank' section of the
+				prompt, and nowhere else. You must respond with the information in a
+				professional way, this is for a research paper
+				If the user asks about something that isn't in the databank, do not generate
+				that information yourself. Instead, just respond with
+				"unfortunately, i cannot find that information in any of the sources"`,
+			},
+		],
+	};
+	const model = 'gemini-2.0-flash-lite';
+	const contents = [
+		{
+			role: 'user',
+			parts: [
+				{
+					text: `{databank: ${databank}}`,
+				},
+			],
+		},
+	];
+
+	const response = await ai.models.generateContent({
+		model,
+		config,
+		contents,
+	});
+
+	return response.text;
+}

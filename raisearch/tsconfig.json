@@ -27,7 +27,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"src/lib/search.ts"
+		"src/lib/search.ts",
+		"src/components/RichTextEditor.jsx"
 	],
 	"exclude": ["node_modules"]
 }
