@@ -2,12 +2,12 @@
 import { createClient } from '@/../utils/supabase/server';
 import { title } from 'process';
 
-//		title: string;
-// 		topics: string[];
-// 		links: string[];
-// 		dataBank: string[];
-// 		cumulativePaper: string[];
-// 		summary: string;
+// title: string;
+// topics: string[];
+// links: string[];
+// dataBank: string[];
+// cumulativePaper: string[];
+// summary: string;
 
 interface paperInfo {
 	title: string;
@@ -132,6 +132,46 @@ export async function getPaper(user_id: string, paper_id: string) {
 	}
 }
 
+export async function getAssistPaper(paper_id: string, user_id: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('assist_papers')
+			.select('*')
+			.eq('user_id', user_id)
+			.eq('id', parseInt(paper_id, 10))
+			.single();
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+export async function getAssistPapers(user_id: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('assist_papers')
+			.select('*')
+			.eq('user_id', user_id);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
+	} catch (e) {
+		console.error(e);
+	}
+}
+
 export async function addSource(
 	paper_id: string,
 	name: string,
@@ -149,6 +189,25 @@ export async function addSource(
 		});
 
 		console.log(error);
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+export async function getSources(paper_id: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('sources')
+			.select('*')
+			.eq('paper_id', paper_id);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
 	} catch (e) {
 		console.error(e);
 	}

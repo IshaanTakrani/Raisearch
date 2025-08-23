@@ -3,12 +3,13 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
 import RichTextEditor from '@/components/RichTextEditor';
 import ChatSourceSidebar from '@/components/ChatSourceSidebar';
+import { getAssistPaper } from '@/lib/db_service';
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
-async function handleSave() {
-	const supabase = await createClient();
-}
+// async function handleSave() {
+// 	const supabase = await createClient();
+// }
 
 export default async function Paper(props: { params: Params }) {
 	const supabase = await createClient();
@@ -20,16 +21,19 @@ export default async function Paper(props: { params: Params }) {
 		redirect('/login');
 	}
 
+	const paper = await getAssistPaper(params.paper_id, data.user.id);
+	console.log(paper);
+
 	return (
 		<>
 			<div className="mt-30"></div>
 			<div className="flex flex-row w-full">
 				<div className="flex-2">
-					<RichTextEditor></RichTextEditor>
+					<RichTextEditor paper_content={paper.paper}></RichTextEditor>
 				</div>
 
 				<div className="flex-1">
-					<ChatSourceSidebar></ChatSourceSidebar>
+					<ChatSourceSidebar paper_id={params.paper_id}></ChatSourceSidebar>
 				</div>
 			</div>
 		</>

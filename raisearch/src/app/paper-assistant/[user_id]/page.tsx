@@ -1,10 +1,13 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
+import PaperForm from '@/components/PaperForm/PaperForm';
+import AssistPapersTable from '@/components/AssistPapersTable';
+import { getAssistPapers } from '@/lib/db_service';
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
-async function Dashboard(props: { params: Params }) {
+async function AssistDashboard(props: { params: Params }) {
 	const supabase = await createClient();
 	const params = await props.params;
 
@@ -17,12 +20,22 @@ async function Dashboard(props: { params: Params }) {
 	// 	redirect('/login');
 	// }
 
+	let papers = await getAssistPapers(data.user.id);
+	console.log(papers);
+
 	return (
-		<>
-			<div className="mt-30">This is the user page</div>
-			<p>welcome, {data.user.id}</p>
-		</>
+		<div className="flex-col justify-center align-middle w-full px-30">
+			<div className="mt-20 flex-col">
+				<p className="text-5xl text-primary m-10 my-5 mt-30">My Papers</p>
+
+				<p className="text-[var(--green)] m-10 my-5">
+					All your papers, in one place
+				</p>
+			</div>
+
+			<AssistPapersTable papers={papers ?? []}></AssistPapersTable>
+		</div>
 	);
 }
 
-export default Dashboard;
+export default AssistDashboard;
