@@ -6,16 +6,19 @@ import ChatSourceSidebar from '@/components/ChatSourceSidebar';
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
-async function PaperAssistant(props: { params: Params }) {
+async function handleSave() {
 	const supabase = await createClient();
+}
+
+export default async function Paper(props: { params: Params }) {
+	const supabase = await createClient();
+
 	const params = await props.params;
 
 	const { data, error } = await supabase.auth.getUser();
 	if (error || !data?.user) {
 		redirect('/login');
 	}
-
-	// redirect(`/paper-assistant/${data.user.id}`);
 
 	return (
 		<>
@@ -32,5 +35,3 @@ async function PaperAssistant(props: { params: Params }) {
 		</>
 	);
 }
-
-export default PaperAssistant;

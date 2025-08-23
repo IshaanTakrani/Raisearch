@@ -131,3 +131,25 @@ export async function getPaper(user_id: string, paper_id: string) {
 		return null;
 	}
 }
+
+export async function addSource(
+	paper_id: string,
+	name: string,
+	url: string,
+	data: string
+) {
+	try {
+		const supabase = await createClient();
+
+		const { error } = await supabase.from('sources').insert({
+			paper_id: paper_id,
+			name: name,
+			url: url,
+			data: data,
+		});
+
+		console.log(error);
+	} catch (e) {
+		console.error(e);
+	}
+}

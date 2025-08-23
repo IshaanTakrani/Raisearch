@@ -1,3 +1,5 @@
+'use server';
+
 import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
 
