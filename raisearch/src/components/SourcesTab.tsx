@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -18,15 +18,32 @@ import { addSource, getSources } from '@/lib/db_service';
 
 type Source = {
 	id: string;
+	created_at: string;
 	name: string;
 	url: string;
 	data: string;
+	paper_id: number;
 };
 
 function SourcesTab({ paper_id }: { paper_id: string }) {
 	const [url, setUrl] = useState('');
 	const [name, setName] = useState('');
-	const [sources, setSources] = useState<Source[]>([]);
+	const [sources, setSources] = useState<any[]>([]);
+
+	useEffect(() => {
+		const fetchSources = async () => {
+			try {
+				const sources_from_db = await getSources(paper_id);
+				setSources(sources_from_db ?? []);
+			} catch (err) {
+				console.error('Error loading sources:', err);
+			}
+		};
+
+		if (paper_id) {
+			fetchSources();
+		}
+	}, [paper_id]); // runs when paper_id changes
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -41,15 +58,17 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 		setUrl('');
 		setName('');
 
-		// setSources(await getSources(paper_id));
+		let sources_from_db = await getSources(paper_id);
+		console.log(sources_from_db);
 		// TODO: fix set sources to db value
+		setSources(sources_from_db ?? []);
 		console.log(sources);
 	};
 
 	return (
-		<Card className="max-w-md mx-auto shadow-lg rounded-2xl">
+		<Card className="w-full mx-auto shadow-lg rounded-2xl">
 			<CardHeader>
-				<CardTitle className="text-xl font-semibold"></CardTitle>
+				<CardTitle className="text-xl font-semibold">Sources</CardTitle>
 			</CardHeader>
 
 			<form onSubmit={handleSubmit}>
@@ -71,7 +90,7 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 					<Button type="submit">Submit</Button>
 				</CardContent>
 			</form>
-			{/* 
+
 			<CardContent className="flex flex-col gap-2 mt-4">
 				{sources.map((src) => (
 					<div
@@ -81,7 +100,7 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 						<div className="flex items-center gap-2">
 							<Checkbox
 								checked={src.flagged}
-								onCheckedChange={() => toggleFlag(src.id)}
+								// onCheckedChange={() => toggleFlag(src.id)}
 							/>
 							<span className={src.flagged ? 'line-through' : ''}>
 								{src.name}
@@ -90,13 +109,13 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 						<Button
 							variant="ghost"
 							size="icon"
-							onClick={() => deleteSource(src.id)}
+							// onClick={() => deleteSource(src.id)}
 						>
 							<Trash2 className="w-4 h-4" />
 						</Button>
 					</div>
 				))}
-			</CardContent> */}
+			</CardContent>
 
 			{/* <CardFooter className="text-sm text-muted-foreground">
         Paste a valid URL and click submit.

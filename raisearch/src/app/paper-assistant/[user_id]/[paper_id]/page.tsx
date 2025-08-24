@@ -26,13 +26,12 @@ export default async function Paper(props: { params: Params }) {
 
 	return (
 		<>
-			<div className="mt-30"></div>
-			<div className="flex flex-row w-full">
-				<div className="flex-2">
+			<div className="flex flex-row w-full gap-10 p-10">
+				<div className="flex-2 w-full">
 					<RichTextEditor paper_content={paper.paper}></RichTextEditor>
 				</div>
 
-				<div className="flex-1">
+				<div className="flex-1 w-full">
 					<ChatSourceSidebar paper_id={params.paper_id}></ChatSourceSidebar>
 				</div>
 			</div>

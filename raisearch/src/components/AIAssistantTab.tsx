@@ -45,7 +45,7 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 	};
 
 	return (
-		<Card className="max-w-md mx-auto shadow-lg rounded-2xl h-[500px] flex flex-col">
+		<Card className="w-full mx-auto shadow-lg rounded-2xl h-[500px] flex flex-col">
 			<CardHeader>
 				<CardTitle className="text-xl font-semibold">AI Chatbot</CardTitle>
 			</CardHeader>

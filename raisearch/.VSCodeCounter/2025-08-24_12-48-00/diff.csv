@@ -1,0 +1,24 @@
+"filename", "language", "JSON", "JSON with Comments", "TypeScript JSX", "JavaScript JSX", "TypeScript", "Draw.io", "comment", "blank", "total"
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/asist_domain_model.drawio", "Draw.io", 0, 0, 0, 0, 0, 101, 0, 0, 101
+"/home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/assist_interaction.drawio", "Draw.io", 0, 0, 0, 0, 0, 251, 0, 0, 251
+"/home/ishaan/Documents/projects/Raisearch/raisearch/package-lock.json", "JSON", 1506, 0, 0, 0, 0, 0, 0, 0, 1506
+"/home/ishaan/Documents/projects/Raisearch/raisearch/package.json", "JSON", 14, 0, 0, 0, 0, 0, 0, 0, 14
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/pdf_from_search/route.ts", "TypeScript", 0, 0, 0, 0, 2, 0, 0, 0, 2
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/test-search/route.ts", "TypeScript", 0, 0, 0, 0, 12, 0, 0, 2, 14
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/[user_id]/[paper_id]/page.tsx", "TypeScript JSX", 0, 0, 29, 0, 0, 0, 3, 9, 41
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/[user_id]/page.tsx", "TypeScript JSX", 0, 0, 29, 0, 0, 0, 3, 10, 42
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/page.tsx", "TypeScript JSX", 0, 0, 5, 0, 0, 0, 29, 11, 45
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/AIAssistantTab.tsx", "TypeScript JSX", 0, 0, 72, 0, 0, 0, 2, 12, 86
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/AssistPapersTable.tsx", "TypeScript JSX", 0, 0, 48, 0, 0, 0, 0, 6, 54
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ChatSourceSidebar.tsx", "TypeScript JSX", 0, 0, 41, 0, 0, 0, 1, 5, 47
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/HorizontalNav.tsx", "TypeScript JSX", 0, 0, -4, 0, 0, 0, 0, 0, -4
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/PapersTable.tsx", "TypeScript JSX", 0, 0, -1, 0, 0, 0, 1, 0, 0
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/RichTextEditor.jsx", "JavaScript JSX", 0, 0, 0, 37, 0, 0, 1, 7, 45
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/SourcesTab.tsx", "TypeScript JSX", 0, 0, 105, 0, 0, 0, 6, 17, 128
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/checkbox.tsx", "TypeScript JSX", 0, 0, 28, 0, 0, 0, 0, 5, 33
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/tabs.tsx", "TypeScript JSX", 0, 0, 59, 0, 0, 0, 0, 8, 67
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/db_service.ts", "TypeScript", 0, 0, 0, 0, 69, 0, 0, 12, 81
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/llmService.ts", "TypeScript", 0, 0, 0, 0, 35, 0, 0, 3, 38
+"/home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/parse_incoming_docs.ts", "TypeScript", 0, 0, 0, 0, 17, 0, 0, 6, 23
+"/home/ishaan/Documents/projects/Raisearch/raisearch/tsconfig.json", "JSON with Comments", 0, 1, 0, 0, 0, 0, 0, 0, 1
+"Total", "-", 1520, 1, 411, 37, 135, 352, 46, 113, 2615

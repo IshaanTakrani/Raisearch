@@ -18,19 +18,27 @@ import SourcesTab from './SourcesTab';
 
 function ChatSourceSidebar({ paper_id }: { paper_id: string }) {
 	return (
-		<div className="flex w-full max-w-sm flex-col gap-6">
-			<Tabs defaultValue="AI Assistant">
-				<TabsList>
-					<TabsTrigger value="AI Assistant">AI Assistant</TabsTrigger>
-					<TabsTrigger value="Sources">Sources</TabsTrigger>
-				</TabsList>
-				<TabsContent value="AI Assistant">
-					<AIAssistantTab paper_id={paper_id}></AIAssistantTab>
-				</TabsContent>
-				<TabsContent value="Sources">
-					<SourcesTab paper_id={paper_id}></SourcesTab>
-				</TabsContent>
-			</Tabs>
+		<div className="flex w-full justify-center">
+			<div className="flex flex-col items-center gap-6 w-full ">
+				<Tabs defaultValue="AI Assistant" className="w-full">
+					{/* Make tabs full width */}
+					<TabsList className="grid w-full grid-cols-2">
+						<TabsTrigger value="AI Assistant" className="w-full">
+							AI Assistant
+						</TabsTrigger>
+						<TabsTrigger value="Sources" className="w-full">
+							Sources
+						</TabsTrigger>
+					</TabsList>
+
+					<TabsContent value="AI Assistant" className="flex justify-center">
+						<AIAssistantTab paper_id={paper_id} />
+					</TabsContent>
+					<TabsContent value="Sources" className="flex justify-center">
+						<SourcesTab paper_id={paper_id} />
+					</TabsContent>
+				</Tabs>
+			</div>
 		</div>
 	);
 }

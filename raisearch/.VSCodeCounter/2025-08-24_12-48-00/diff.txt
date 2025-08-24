@@ -1,0 +1,67 @@
+Date : 2025-08-24 12:48:00
+Directory : /home/ishaan/Documents/projects/Raisearch/raisearch
+Total : 22 files,  2456 codes, 46 comments, 113 blanks, all 2615 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      1,520 |          0 |          0 |      1,520 |
+| TypeScript JSX     |         11 |        411 |         45 |         83 |        539 |
+| Draw.io            |          2 |        352 |          0 |          0 |        352 |
+| TypeScript         |          5 |        135 |          0 |         23 |        158 |
+| JavaScript JSX     |          1 |         37 |          1 |          7 |         45 |
+| JSON with Comments |          1 |          1 |          0 |          0 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |         22 |      2,456 |         46 |        113 |      2,615 |
+| . (Files)                                                                                                 |          3 |      1,521 |          0 |          0 |      1,521 |
+| diagrams                                                                                                  |          2 |        352 |          0 |          0 |        352 |
+| src                                                                                                       |         17 |        583 |         46 |        113 |        742 |
+| src/app                                                                                                   |          5 |         77 |         35 |         32 |        144 |
+| src/app/api                                                                                               |          2 |         14 |          0 |          2 |         16 |
+| src/app/api/pdf_from_search                                                                               |          1 |          2 |          0 |          0 |          2 |
+| src/app/api/test-search                                                                                   |          1 |         12 |          0 |          2 |         14 |
+| src/app/paper-assistant                                                                                   |          3 |         63 |         35 |         30 |        128 |
+| src/app/paper-assistant (Files)                                                                           |          1 |          5 |         29 |         11 |         45 |
+| src/app/paper-assistant/[user_id]                                                                         |          2 |         58 |          6 |         19 |         83 |
+| src/app/paper-assistant/[user_id] (Files)                                                                 |          1 |         29 |          3 |         10 |         42 |
+| src/app/paper-assistant/[user_id]/[paper_id]                                                              |          1 |         29 |          3 |          9 |         41 |
+| src/components                                                                                            |          9 |        385 |         11 |         60 |        456 |
+| src/components (Files)                                                                                    |          7 |        298 |         11 |         47 |        356 |
+| src/components/ui                                                                                         |          2 |         87 |          0 |         13 |        100 |
+| src/lib                                                                                                   |          3 |        121 |          0 |         21 |        142 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                  | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/asist_domain_model.drawio                    | Draw.io            |        101 |          0 |          0 |        101 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/diagrams/assist_interaction.drawio                    | Draw.io            |        251 |          0 |          0 |        251 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/package-lock.json                                     | JSON               |      1,506 |          0 |          0 |      1,506 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/package.json                                          | JSON               |         14 |          0 |          0 |         14 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/pdf_from_search/route.ts                  | TypeScript         |          2 |          0 |          0 |          2 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/app/api/test-search/route.ts                      | TypeScript         |         12 |          0 |          2 |         14 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/[user_id]/[paper_id]/page.tsx | TypeScript JSX     |         29 |          3 |          9 |         41 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/[user_id]/page.tsx            | TypeScript JSX     |         29 |          3 |         10 |         42 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/app/paper-assistant/page.tsx                      | TypeScript JSX     |          5 |         29 |         11 |         45 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/AIAssistantTab.tsx                     | TypeScript JSX     |         72 |          2 |         12 |         86 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/AssistPapersTable.tsx                  | TypeScript JSX     |         48 |          0 |          6 |         54 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ChatSourceSidebar.tsx                  | TypeScript JSX     |         41 |          1 |          5 |         47 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/HorizontalNav.tsx                      | TypeScript JSX     |         -4 |          0 |          0 |         -4 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/PapersTable.tsx                        | TypeScript JSX     |         -1 |          1 |          0 |          0 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/RichTextEditor.jsx                     | JavaScript JSX     |         37 |          1 |          7 |         45 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/SourcesTab.tsx                         | TypeScript JSX     |        105 |          6 |         17 |        128 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/checkbox.tsx                        | TypeScript JSX     |         28 |          0 |          5 |         33 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/components/ui/tabs.tsx                            | TypeScript JSX     |         59 |          0 |          8 |         67 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/db_service.ts                                 | TypeScript         |         69 |          0 |         12 |         81 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/llmService.ts                                 | TypeScript         |         35 |          0 |          3 |         38 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/src/lib/parse_incoming_docs.ts                        | TypeScript         |         17 |          0 |          6 |         23 |
+| /home/ishaan/Documents/projects/Raisearch/raisearch/tsconfig.json                                         | JSON with Comments |          1 |          0 |          0 |          1 |
+| Total                                                                                                     |                    |      2,456 |         46 |        113 |      2,615 |
++-----------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
