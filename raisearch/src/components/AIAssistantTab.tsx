@@ -11,6 +11,8 @@ import {
 	CardFooter,
 } from '@/components/ui/card';
 
+import { generateSummaryFromSources } from '@/app/paper-assistant/[user_id]/[paper_id]/actions';
+
 type Message = {
 	role: 'user' | 'ai';
 	content: string;
@@ -32,6 +34,8 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 			{ role: 'user', content: input } as Message,
 		];
 		setMessages(newMessages);
+
+		generateSummaryFromSources('TODO: put user id here', paper_id);
 
 		// Simulate AI response
 		setTimeout(() => {

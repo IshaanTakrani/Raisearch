@@ -212,3 +212,23 @@ export async function getSources(paper_id: string) {
 		console.error(e);
 	}
 }
+
+export async function getFlaggedSources(paper_id: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('sources')
+			.select('*')
+			.eq('flagged', true)
+			.eq('paper_id', paper_id);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
+	} catch (e) {
+		console.error(e);
+	}
+}
