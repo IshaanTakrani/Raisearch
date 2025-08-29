@@ -196,7 +196,7 @@ export async function generateSummary(paperContent: string): Promise<string> {
 	return response.text ?? '';
 }
 
-async function get_info_from_sources(databank: string) {
+export async function getInfoFromSources(databank: string, prompt: string) {
 	const ai = new GoogleGenAI({
 		apiKey: process.env.GEMINI_API_KEY,
 	});
@@ -209,7 +209,9 @@ async function get_info_from_sources(databank: string) {
 				professional way, this is for a research paper
 				If the user asks about something that isn't in the databank, do not generate
 				that information yourself. Instead, just respond with
-				"unfortunately, i cannot find that information in any of the sources"`,
+				"unfortunately, i cannot find that information in any of the sources"
+				
+				Here is the question you must answer: ${prompt}`,
 			},
 		],
 	};

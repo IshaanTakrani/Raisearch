@@ -35,7 +35,7 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 		];
 		setMessages(newMessages);
 
-		generateSummaryFromSources('TODO: put user id here', paper_id);
+		generateSummaryFromSources('TODO: put user id here', paper_id, input);
 
 		// Simulate AI response
 		setTimeout(() => {
