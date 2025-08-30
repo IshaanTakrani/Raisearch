@@ -23,5 +23,6 @@ export async function generateSummaryFromSources(
 
 	let llmResponse = await getInfoFromSources(inputString, prompt);
 
-	console.log(llmResponse);
+	// console.log(llmResponse);
+	return llmResponse;
 }

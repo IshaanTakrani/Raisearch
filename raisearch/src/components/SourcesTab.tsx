@@ -5,16 +5,15 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Trash2 } from 'lucide-react'; // delete icon
-import {
-	Card,
-	CardHeader,
-	CardTitle,
-	CardContent,
-	CardFooter,
-} from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 import { extract_web_data } from '@/lib/parse_incoming_docs';
-import { addSource, getSources } from '@/lib/db_service';
+import {
+	addSource,
+	getSources,
+	toggleSourceFlag,
+	deleteSource,
+} from '@/lib/db_service';
 
 type Source = {
 	id: string;
@@ -23,13 +22,15 @@ type Source = {
 	url: string;
 	data: string;
 	paper_id: number;
+	flagged: boolean;
 };
 
 function SourcesTab({ paper_id }: { paper_id: string }) {
 	const [url, setUrl] = useState('');
 	const [name, setName] = useState('');
-	const [sources, setSources] = useState<any[]>([]);
+	const [sources, setSources] = useState<Source[]>([]);
 
+	// ✅ Fetch all sources on mount / paper_id change
 	useEffect(() => {
 		const fetchSources = async () => {
 			try {
@@ -40,29 +41,46 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 			}
 		};
 
-		if (paper_id) {
-			fetchSources();
-		}
-	}, [paper_id]); // runs when paper_id changes
+		if (paper_id) fetchSources();
+	}, [paper_id]);
 
+	// ✅ Add new source
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!url.trim()) return;
 
-		console.log('Submitted URL:', url);
 		const data = await extract_web_data(url);
-		console.log(name);
-
-		addSource(paper_id, name, url, data);
+		await addSource(paper_id, name, url, data);
 
 		setUrl('');
 		setName('');
 
-		let sources_from_db = await getSources(paper_id);
-		console.log(sources_from_db);
-		// TODO: fix set sources to db value
+		const sources_from_db = await getSources(paper_id);
 		setSources(sources_from_db ?? []);
-		console.log(sources);
+	};
+
+	// ✅ Toggle flagged state
+	const handleToggleFlag = async (id: string, currentFlag: boolean) => {
+		try {
+			await toggleSourceFlag(id, !currentFlag);
+			setSources((prev) =>
+				prev.map((src) =>
+					src.id === id ? { ...src, flagged: !currentFlag } : src
+				)
+			);
+		} catch (err) {
+			console.error('Error toggling flag:', err);
+		}
+	};
+
+	// ✅ Delete source
+	const handleDelete = async (id: string) => {
+		try {
+			await deleteSource(id);
+			setSources((prev) => prev.filter((src) => src.id !== id));
+		} catch (err) {
+			console.error('Error deleting source:', err);
+		}
 	};
 
 	return (
@@ -74,7 +92,7 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 			<form onSubmit={handleSubmit}>
 				<CardContent className="flex flex-col gap-2">
 					<Input
-						type="name"
+						type="text"
 						placeholder="Enter a Name for the source"
 						value={name}
 						onChange={(e) => setName(e.target.value)}
@@ -100,26 +118,22 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 						<div className="flex items-center gap-2">
 							<Checkbox
 								checked={src.flagged}
-								// onCheckedChange={() => toggleFlag(src.id)}
+								onCheckedChange={() => handleToggleFlag(src.id, src.flagged)}
 							/>
-							<span className={src.flagged ? 'line-through' : ''}>
+							<span className={!src.flagged ? 'line-through' : ''}>
 								{src.name}
 							</span>
 						</div>
 						<Button
 							variant="ghost"
 							size="icon"
-							// onClick={() => deleteSource(src.id)}
+							onClick={() => handleDelete(src.id)}
 						>
 							<Trash2 className="w-4 h-4" />
 						</Button>
 					</div>
 				))}
 			</CardContent>
-
-			{/* <CardFooter className="text-sm text-muted-foreground">
-        Paste a valid URL and click submit.
-      </CardFooter> */}
 		</Card>
 	);
 }

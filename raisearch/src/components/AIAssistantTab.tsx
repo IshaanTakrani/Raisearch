@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import {
@@ -24,7 +24,13 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 	]);
 	const [input, setInput] = useState('');
 
-	const handleSubmit = (e: React.FormEvent) => {
+	const bottomRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+	}, [messages]); // runs whenever messages change
+
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!input.trim()) return;
 
@@ -34,18 +40,19 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 			{ role: 'user', content: input } as Message,
 		];
 		setMessages(newMessages);
+		setInput('');
 
-		generateSummaryFromSources('TODO: put user id here', paper_id, input);
+		let llmResponse = await generateSummaryFromSources(
+			'TODO: put user id here',
+			paper_id,
+			input
+		);
 
 		// Simulate AI response
-		setTimeout(() => {
-			setMessages((prev) => [
-				...prev,
-				{ role: 'ai', content: `You said: "${input}" 🤖` } as Message,
-			]);
-		}, 600);
-
-		setInput('');
+		setMessages((prev) => [
+			...prev,
+			{ role: 'ai', content: `${llmResponse}` } as Message,
+		]);
 	};
 
 	return (
@@ -67,6 +74,9 @@ function AIAssistantTab({ paper_id }: { paper_id: string }) {
 						{msg.content}
 					</div>
 				))}
+
+				{/* Invisible anchor div */}
+				<div ref={bottomRef} />
 			</CardContent>
 
 			<CardFooter>

@@ -20,8 +20,10 @@ function ChatSourceSidebar({ paper_id }: { paper_id: string }) {
 	return (
 		<div className="flex w-full justify-center">
 			<div className="flex flex-col items-center gap-6 w-full ">
-				<Tabs defaultValue="AI Assistant" className="w-full">
-					{/* Make tabs full width */}
+				<AIAssistantTab paper_id={paper_id} />
+
+				<SourcesTab paper_id={paper_id} />
+				{/* <Tabs defaultValue="AI Assistant" className="w-full">
 					<TabsList className="grid w-full grid-cols-2">
 						<TabsTrigger value="AI Assistant" className="w-full">
 							AI Assistant
@@ -37,7 +39,7 @@ function ChatSourceSidebar({ paper_id }: { paper_id: string }) {
 					<TabsContent value="Sources" className="flex justify-center">
 						<SourcesTab paper_id={paper_id} />
 					</TabsContent>
-				</Tabs>
+				</Tabs> */}
 			</div>
 		</div>
 	);

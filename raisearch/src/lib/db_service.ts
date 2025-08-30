@@ -186,6 +186,7 @@ export async function addSource(
 			name: name,
 			url: url,
 			data: data,
+			flagged: true,
 		});
 
 		console.log(error);
@@ -221,6 +222,44 @@ export async function getFlaggedSources(paper_id: string) {
 			.select('*')
 			.eq('flagged', true)
 			.eq('paper_id', paper_id);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+export async function deleteSource(id: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('sources')
+			.delete()
+			.eq('id', id);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		return data;
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+export async function toggleSourceFlag(id: string, currentFlag: boolean) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('sources')
+			.update({ flagged: currentFlag })
+			.eq('id', id);
 
 		if (error) {
 			console.error(error);

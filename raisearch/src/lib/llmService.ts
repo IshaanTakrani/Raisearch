@@ -210,6 +210,8 @@ export async function getInfoFromSources(databank: string, prompt: string) {
 				If the user asks about something that isn't in the databank, do not generate
 				that information yourself. Instead, just respond with
 				"unfortunately, i cannot find that information in any of the sources"
+
+				Furthermore, include the source where you got the information from
 				
 				Here is the question you must answer: ${prompt}`,
 			},
