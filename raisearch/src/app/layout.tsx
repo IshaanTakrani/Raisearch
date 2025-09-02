@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Lexend } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ModeToggle } from '@/components/ModeToggle';
 import HorizontalNav from '@/components/HorizontalNav';
+import { Toaster } from '@/components/ui/sonner';
+
 import './globals.css';
 
 const geistSans = Geist({
@@ -42,6 +44,7 @@ export default function RootLayout({
 					{/* <div className="mb-25"></div> */}
 					<HorizontalNav></HorizontalNav>
 					{children}
+					<Toaster />
 					<div className="fixed bottom-0 right-0 p-4">
 						<ModeToggle></ModeToggle>
 					</div>

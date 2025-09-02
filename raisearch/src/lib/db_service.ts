@@ -172,6 +172,32 @@ export async function getAssistPapers(user_id: string) {
 	}
 }
 
+export async function updateAssistPaper(
+	user_id: string,
+	paper_id: string,
+	paper: string
+) {
+	try {
+		const supabase = await createClient();
+		const { data, error } = await supabase
+			.from('assist_papers')
+			.update({ paper: paper })
+			.eq('user_id', user_id)
+			.eq('id', parseInt(paper_id, 10))
+			.single();
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+
+		console.log(data);
+	} catch (e) {
+		console.error(e);
+		return null;
+	}
+}
+
 export async function addSource(
 	paper_id: string,
 	name: string,
