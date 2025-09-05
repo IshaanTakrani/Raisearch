@@ -6,53 +6,42 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { updateAssistPaper } from '@/lib/db_service';
 
-export default function RichTextEditor(paper_content) {
+export default function RichTextEditor({ paper_content, paper_id, user_id }) {
 	const editor = useEditor({
 		extensions: [StarterKit],
-		content: paper_content.paper_content,
+		content: paper_content,
 		immediatelyRender: false,
 	});
 
-	console.log(paper_content.paper_content);
-
-	// useEffect(() => {
-	// 	if (!editor) return null;
-
-	// 	const handleSave = (e) => {
-	// 		if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-	// 			e.preventDefault();
-	// 			let html = editor.getHTML();
-	// 			console.log('saving...');
-	// 			console.log(html);
-	// 		}
-	// 	};
-
-	// 	document.addEventListener('keydown', handleSave);
-	// 	return () => document.removeEventListener('keydown', handleSave);
-	// }, [editor]);
+	console.log('Paper Content:', paper_content?.paper_content);
+	console.log('Paper ID:', paper_id);
+	console.log('User ID:', user_id);
 
 	useEffect(() => {
 		if (!editor) return;
 
-		const handleSave = (e) => {
-			// Ctrl+S / Cmd+S
+		const handleSave = async (e) => {
 			if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-				e.preventDefault(); // prevent browser save dialog
-				const html = editor.getHTML(); // or editor.getJSON()
+				e.preventDefault();
+				const html = editor.getHTML();
 				console.log('Saving to DB:', html);
+
 				toast('Paper has been saved', {
 					description: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`,
 				});
-				// updateAssistPaper(user);
 
-				// TODO: call your API route here
-				// await fetch('/api/save', { method: 'POST', body: JSON.stringify({ content: html }) })
+				// Call Supabase update function
+				await updateAssistPaper(user_id, paper_id, html);
+
+				console.log('FROM CLIENT:');
+				console.log('user_id:', user_id);
+				console.log('paper_id:', paper_id);
 			}
 		};
 
 		document.addEventListener('keydown', handleSave);
 		return () => document.removeEventListener('keydown', handleSave);
-	}, [editor]);
+	}, [editor, user_id, paper_id]);
 
 	if (!editor) return null;
 

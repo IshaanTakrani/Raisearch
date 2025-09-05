@@ -1,9 +1,22 @@
-import React from 'react';
+// import React from 'react';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/../utils/supabase/server';
 import PaperForm from '@/components/PaperForm/PaperForm';
 import AssistPapersTable from '@/components/AssistPapersTable';
 import { getAssistPapers } from '@/lib/db_service';
+
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogFooter,
+	DialogTrigger,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Plus } from 'lucide-react';
+import { AddPaperButton } from '@/components/AddPaperButton';
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
@@ -12,28 +25,30 @@ async function AssistDashboard(props: { params: Params }) {
 	const params = await props.params;
 
 	const { data, error } = await supabase.auth.getUser();
-	if (error || !data?.user || data.user.id != params.user_id) {
+	if (error || !data?.user || data.user.id !== params.user_id) {
 		redirect('/login');
 	}
-
-	// if (data.user.id != params.user_id) {
-	// 	redirect('/login');
-	// }
 
 	let papers = await getAssistPapers(data.user.id);
 	console.log(papers);
 
 	return (
 		<div className="flex-col justify-center align-middle w-full px-30">
-			<div className="mt-20 flex-col">
-				<p className="text-5xl text-primary m-10 my-5 mt-30">My Papers</p>
+			{/* Header Section */}
+			<div className="mt-20 flex flex-row justify-between items-center">
+				<div>
+					<p className="text-5xl text-primary m-10 my-5 mt-30">My Papers</p>
+					<p className="text-[var(--green)] m-10 my-5">
+						All your papers, in one place
+					</p>
+				</div>
 
-				<p className="text-[var(--green)] m-10 my-5">
-					All your papers, in one place
-				</p>
+				{/* Add Paper Button */}
+				<AddPaperButton user_id={data.user.id} />
 			</div>
 
-			<AssistPapersTable papers={papers ?? []}></AssistPapersTable>
+			{/* Table */}
+			<AssistPapersTable papers={papers ?? []} />
 		</div>
 	);
 }

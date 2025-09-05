@@ -8,13 +8,13 @@ function HorizontalNav() {
 			<img src="logo.png" className="h-10" alt="Logo" />
 
 			<div className="flex gap-4">
-				<Link href={'/dashboard'}>
+				<Link href={'/paper-assistant'}>
 					<Button>My Papers</Button>
 				</Link>
 
-				<Link href={'/test-topics'}>
+				{/* <Link href={'/test-topics'}>
 					<Button variant={'outline'}>Make a Paper</Button>
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);

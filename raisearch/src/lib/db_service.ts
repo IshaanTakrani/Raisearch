@@ -1,5 +1,6 @@
 'use server';
 import { createClient } from '@/../utils/supabase/server';
+import { stat } from 'fs';
 import { title } from 'process';
 
 // title: string;
@@ -153,6 +154,27 @@ export async function getAssistPaper(paper_id: string, user_id: string) {
 	}
 }
 
+export async function createAssistPaper(user_id: string, title: string) {
+	try {
+		const supabase = await createClient();
+		const { data, error, status, statusText } = await supabase
+			.from('assist_papers')
+			.insert({
+				user_id,
+				title,
+			});
+
+		console.log(data, error, status, statusText);
+
+		if (error) {
+			console.error(error);
+			return null;
+		}
+	} catch (e) {
+		console.error(e);
+	}
+}
+
 export async function getAssistPapers(user_id: string) {
 	try {
 		const supabase = await createClient();
@@ -178,12 +200,17 @@ export async function updateAssistPaper(
 	paper: string
 ) {
 	try {
+		console.log(user_id);
+		console.log(paper_id);
+		console.log(paper);
+
 		const supabase = await createClient();
-		const { data, error } = await supabase
+		const { data, error, status, statusText } = await supabase
 			.from('assist_papers')
-			.update({ paper: paper })
+			.update({ paper })
 			.eq('user_id', user_id)
-			.eq('id', parseInt(paper_id, 10))
+			.eq('id', paper_id)
+			.select()
 			.single();
 
 		if (error) {
@@ -191,7 +218,7 @@ export async function updateAssistPaper(
 			return null;
 		}
 
-		console.log(data);
+		console.log(data, error, status, statusText);
 	} catch (e) {
 		console.error(e);
 		return null;

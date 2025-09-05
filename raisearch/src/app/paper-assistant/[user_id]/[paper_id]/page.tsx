@@ -22,13 +22,18 @@ export default async function Paper(props: { params: Params }) {
 	}
 
 	const paper = await getAssistPaper(params.paper_id, data.user.id);
-	console.log(paper);
+	console.log('paper: ');
+	console.log(paper.paper);
 
 	return (
 		<>
 			<div className="flex flex-row w-full gap-10 p-10">
 				<div className="flex-2 w-full">
-					<RichTextEditor paper_content={paper.paper}></RichTextEditor>
+					<RichTextEditor
+						paper_content={paper.paper}
+						paper_id={params.paper_id}
+						user_id={data.user.id}
+					></RichTextEditor>
 				</div>
 
 				<div className="flex-1 w-full">
