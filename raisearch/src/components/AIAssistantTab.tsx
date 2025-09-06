@@ -11,7 +11,7 @@ import {
 	CardFooter,
 } from '@/components/ui/card';
 
-import { generateSummaryFromSources } from '@/app/paper-assistant/[user_id]/[paper_id]/actions';
+import { generateSummaryFromSources } from '@/app/dashboard/[user_id]/[paper_id]/actions';
 
 type Message = {
 	role: 'user' | 'ai';
@@ -20,7 +20,7 @@ type Message = {
 
 function AIAssistantTab({ paper_id }: { paper_id: string }) {
 	const [messages, setMessages] = useState<Message[]>([
-		{ role: 'ai', content: 'Hello! How can I help you today?' },
+		{ role: 'ai', content: 'Ask me anything about the sources selected' },
 	]);
 	const [input, setInput] = useState('');
 

@@ -4,6 +4,7 @@ import { createClient } from '@/../utils/supabase/server';
 import RichTextEditor from '@/components/RichTextEditor';
 import ChatSourceSidebar from '@/components/ChatSourceSidebar';
 import { getAssistPaper } from '@/lib/db_service';
+import { Metadata } from 'next';
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 

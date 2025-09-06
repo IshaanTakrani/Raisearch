@@ -9,6 +9,17 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: {
+		default: 'Login',
+		template: '%s | My Website',
+	},
+	icons: {
+		icon: '/favicon.ico', // ✅ This must point to public/favicon.ico
+	},
+};
 
 export default function LoginPage() {
 	return (

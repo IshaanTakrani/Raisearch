@@ -8,7 +8,7 @@ function HorizontalNav() {
 			<img src="logo.png" className="h-10" alt="Logo" />
 
 			<div className="flex gap-4">
-				<Link href={'/paper-assistant'}>
+				<Link href={'/dashboard'}>
 					<Button>My Papers</Button>
 				</Link>
 

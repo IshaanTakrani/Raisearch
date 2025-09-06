@@ -17,6 +17,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Plus } from 'lucide-react';
 import { AddPaperButton } from '@/components/AddPaperButton';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: {
+		default: 'Dashboard',
+		template: '%s | Raisearch',
+	},
+	icons: {
+		icon: '/favicon.ico', // ✅ This must point to public/favicon.ico
+	},
+};
 
 type Params = Promise<{ user_id: string; paper_id: string }>;
 
