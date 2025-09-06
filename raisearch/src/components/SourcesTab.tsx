@@ -84,7 +84,7 @@ function SourcesTab({ paper_id }: { paper_id: string }) {
 	};
 
 	return (
-		<Card className="w-full mx-auto shadow-lg rounded-2xl">
+		<Card className="w-full mx-auto shadow-lg rounded-2xl ">
 			<CardHeader>
 				<CardTitle className="text-xl font-semibold">Sources</CardTitle>
 			</CardHeader>

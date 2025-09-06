@@ -18,28 +18,24 @@ import SourcesTab from './SourcesTab';
 
 function ChatSourceSidebar({ paper_id }: { paper_id: string }) {
 	return (
-		<div className="flex w-full justify-center">
-			<div className="flex flex-col items-center gap-6 w-full ">
-				<AIAssistantTab paper_id={paper_id} />
-
+		<div
+			className="
+				fixed
+				right-0
+				top-16                       /* Start exactly below navbar (h-16 = 4rem = 64px) */
+				h-[calc(100vh-4rem)]          /* Take full height minus navbar */
+				w-[30%]
+				overflow-y-auto
+				bg-white
+				border-l
+				border-gray-200
+				shadow-lg
+				z-50
+			"
+		>
+			<div className="flex flex-col items-center gap-6 p-6">
 				<SourcesTab paper_id={paper_id} />
-				{/* <Tabs defaultValue="AI Assistant" className="w-full">
-					<TabsList className="grid w-full grid-cols-2">
-						<TabsTrigger value="AI Assistant" className="w-full">
-							AI Assistant
-						</TabsTrigger>
-						<TabsTrigger value="Sources" className="w-full">
-							Sources
-						</TabsTrigger>
-					</TabsList>
-
-					<TabsContent value="AI Assistant" className="flex justify-center">
-						<AIAssistantTab paper_id={paper_id} />
-					</TabsContent>
-					<TabsContent value="Sources" className="flex justify-center">
-						<SourcesTab paper_id={paper_id} />
-					</TabsContent>
-				</Tabs> */}
+				<AIAssistantTab paper_id={paper_id} />
 			</div>
 		</div>
 	);

@@ -65,10 +65,14 @@ export default function RichTextEditor({ paper_content, paper_id, user_id }) {
 				</Button>
 			</div>
 
-			<EditorContent
-				editor={editor}
-				className="prose dark:prose-invert max-w-none"
-			/>
+			<div className="p-4 m-4">
+				<div className=" bg-white drop-shadow-lg p-6 border border-gray-200 min-h-500 relative select-none outline-none">
+					<EditorContent
+						editor={editor}
+						className="ProseEditor prose dark:prose-invert max-w-none min-h-[500px] select-none"
+					/>
+				</div>
+			</div>
 		</div>
 	);
 }

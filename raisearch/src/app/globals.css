@@ -3,9 +3,9 @@
 @import 'tw-animate-css';
 @custom-variant dark (&:is(.dark *));
 
-input {
+/* input {
 	border: 1px solid black;
-}
+} */
 
 /* @theme inline {
   --color-background: var(--background);
@@ -240,4 +240,10 @@ input {
 
 body {
 	font-family: 'Lexend';
+}
+
+/* styles/globals.css or component css */
+.ProseEditor [contenteditable='true'] {
+	outline: none !important;
+	box-shadow: none !important;
 }
