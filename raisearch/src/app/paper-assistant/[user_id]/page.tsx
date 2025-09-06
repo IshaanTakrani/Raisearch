@@ -35,7 +35,7 @@ async function AssistDashboard(props: { params: Params }) {
 	return (
 		<div className="flex-col justify-center align-middle w-full px-30">
 			{/* Header Section */}
-			<div className="mt-20 flex flex-row justify-between items-center">
+			<div className="flex flex-row justify-between items-center">
 				<div>
 					<p className="text-5xl text-primary m-10 my-5 mt-30">My Papers</p>
 					<p className="text-[var(--green)] m-10 my-5">
