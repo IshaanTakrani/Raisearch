@@ -15,7 +15,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
 	title: {
 		default: 'Login',
-		template: '%s | My Website',
+		template: '%s | Raisearch',
 	},
 	icons: {
 		icon: '/favicon.ico', // ✅ This must point to public/favicon.ico
@@ -60,9 +60,9 @@ export default function LoginPage() {
 								</div>
 								<div className="mt-4 text-center text-sm">
 									Don&apos;t have an account?{' '}
-									<Link href="/signup" className="underline underline-offset-4">
+									<a href="/signup" className="underline underline-offset-4">
 										Sign up
-									</Link>
+									</a>
 								</div>
 							</form>
 						</CardContent>
