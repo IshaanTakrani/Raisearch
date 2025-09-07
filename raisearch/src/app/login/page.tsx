@@ -10,6 +10,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: {
@@ -59,9 +60,9 @@ export default function LoginPage() {
 								</div>
 								<div className="mt-4 text-center text-sm">
 									Don&apos;t have an account?{' '}
-									<a href="/signup" className="underline underline-offset-4">
+									<Link href="/signup" className="underline underline-offset-4">
 										Sign up
-									</a>
+									</Link>
 								</div>
 							</form>
 						</CardContent>
