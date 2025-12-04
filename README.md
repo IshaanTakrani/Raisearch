@@ -4,21 +4,21 @@ Raisearch is a research paper assistant that helps you work with web sources. Yo
 
 ## Key Features
 
-*   **Web Source Ingestion**: Import web articles and documents as sources for your research.
-*   **Content-Aware AI Assistant**: Chat with an LLM that is aware of the content of your imported sources, using RAG to provide relevant and context-aware answers.
-*   **Rich Text Editor**: A full-featured markdown editor based on Tiptap for drafting and writing.
-*   **User Authentication**: Secure user login and registration handled by Supabase.
-*   **Paper Management Dashboard**: A personal dashboard to manage and organize your research papers and associated sources.
+- **Web Source Ingestion**: Import web articles and documents as sources for your research.
+- **Content-Aware AI Assistant**: Chat with an LLM that is aware of the content of your imported sources, using RAG to provide relevant and context-aware answers.
+- **Rich Text Editor**: A full-featured markdown editor based on Tiptap for drafting and writing.
+- **User Authentication**: Secure user login and registration handled by Supabase.
+- **Paper Management Dashboard**: A personal dashboard to manage and organize your research papers and associated sources.
 
 ## Tech Stack
 
-*   **Framework**: [Next.js](https://nextjs.org/) (with Turbopack)
-*   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **UI**: [React](https://react.dev/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Backend & Auth**: [Supabase](https://supabase.io/)
-*   **Rich Text Editor**: [Tiptap](https://tiptap.dev/)
-*   **LLM**: [Google Gemini](https://ai.google.dev/)
+- **Framework**: [Next.js](https://nextjs.org/) (with Turbopack)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Backend & Auth**: [Supabase](https://supabase.io/)
+- **Rich Text Editor**: [Tiptap](https://tiptap.dev/)
+- **LLM**: [Google Gemini](https://ai.google.dev/)
 
 ## Getting Started
 
@@ -26,8 +26,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-*   Node.js (v20.x or higher)
-*   npm, yarn, or pnpm
+- Node.js (v20.x or higher)
+- npm, yarn, or pnpm
 
 ### Installation
 
@@ -48,21 +48,24 @@ To get a local copy up and running, follow these simple steps.
 
 ### Running the Application
 
-*   **Development**:
-    ```sh
-    npm run dev
-    ```
-    This will start the development server with Turbopack.
+- **Development**:
 
-*   **Build**:
-    ```sh
-    npm run build
-    ```
+  ```sh
+  npm run dev
+  ```
 
-*   **Start**:
-    ```sh
-    npm run start
-    ```
+  This will start the development server with Turbopack.
+
+- **Build**:
+
+  ```sh
+  npm run build
+  ```
+
+- **Start**:
+  ```sh
+  npm run start
+  ```
 
 ## Project Structure
 
