@@ -1,29 +1,86 @@
-Raisearch: generate a research paper with just a prompt
+# Raisearch
 
-User inputs a prompt and up to 5 subtopics
-Brave search api is used to get information from the internet on each of these topics
-Gemini API is used to generate a research paper based on the information from the brave search information
-Return the research paper to the user
+Raisearch is a research paper assistant that helps you work with web sources. You can input web sources and chat with a content-aware LLM, which uses Retrieval-Augmented Generation (RAG) to retrieve relevant data from your sources. The application also features a markdown rich text editor for taking notes and drafting papers.
 
-<!--
-You are going to write me a section of a research paper based on a topic
-Given a JSON object in this format:
-interface paperInfoforParagraph {
-		title: string;
-		topics: string[];
-		dataBank: string;
-		cumulativePaper: string;
-}
+## Key Features
 
-The cumulative paper may be empty, but there will always be at least one topic, and there will always be at least one link in the links object, and at least one string in the databank. Here is a breakdown:
-title: title of the research paper
-topics: subtopics, or headings, of the research paper
-dataBank: Data that must be parsed, summarized, and used for the research paper
-cumulativePaper: the research paper so far
+*   **Web Source Ingestion**: Import web articles and documents as sources for your research.
+*   **Content-Aware AI Assistant**: Chat with an LLM that is aware of the content of your imported sources, using RAG to provide relevant and context-aware answers.
+*   **Rich Text Editor**: A full-featured markdown editor based on Tiptap for drafting and writing.
+*   **User Authentication**: Secure user login and registration handled by Supabase.
+*   **Paper Management Dashboard**: A personal dashboard to manage and organize your research papers and associated sources.
 
-Here is your job: You must generate a paragraph of the research paper, on the last topic in the topics list. only use the last object in the topics list. Think about what the last one is, then use the last one only.
-for this paragraph, you must use only the information in the dataBank, if some data must be added, you may add your own, but the information in the dataBank must be what the paragraph is based on
-You must be aware of the research paper so far. You may refer back to previous sections of it if you wish, but do not restate informaiton that is already in the cumulativePaper string
+## Tech Stack
 
-Your paragraph should be in this format:
-topic\n\tparagraph body -->
+*   **Framework**: [Next.js](https://nextjs.org/) (with Turbopack)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **UI**: [React](https://react.dev/)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Backend & Auth**: [Supabase](https://supabase.io/)
+*   **Rich Text Editor**: [Tiptap](https://tiptap.dev/)
+*   **LLM**: [Google Gemini](https://ai.google.dev/)
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+*   Node.js (v20.x or higher)
+*   npm, yarn, or pnpm
+
+### Installation
+
+1.  Clone the repo:
+    ```sh
+    git clone https://github.com/your_username/raisearch.git
+    ```
+2.  Install NPM packages:
+    ```sh
+    npm install
+    ```
+3.  Set up your environment variables by creating a `.env.local` file. You'll need to add your Supabase and Google Gemini API keys.
+    ```
+    NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+    GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+    ```
+
+### Running the Application
+
+*   **Development**:
+    ```sh
+    npm run dev
+    ```
+    This will start the development server with Turbopack.
+
+*   **Build**:
+    ```sh
+    npm run build
+    ```
+
+*   **Start**:
+    ```sh
+    npm run start
+    ```
+
+## Project Structure
+
+```
+/
+├── public/              # Static assets
+├── src/
+│   ├── app/             # Next.js App Router pages and layouts
+│   │   ├── (auth)/      # Authentication routes
+│   │   └── dashboard/   # User dashboard
+│   ├── components/      # React components
+│   │   ├── ui/          # UI components (buttons, cards, etc.)
+│   │   └── PaperForm/
+│   ├── lib/             # Core application logic
+│   │   ├── db_service.ts # Database services
+│   │   ├── llmService.ts # LLM services
+│   │   └── search.ts    # RAG and search functionality
+│   └── utils/           # Utility functions
+│       └── supabase/    # Supabase client and middleware
+└── ...
+```
