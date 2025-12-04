@@ -1,4 +1,4 @@
-import { login } from './actions';
+import { signup } from './actions';
 import { Button } from '@/components/ui/button';
 import {
 	Card,
@@ -10,11 +10,10 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
 	title: {
-		default: 'Login',
+		default: 'Sign up',
 		template: '%s | Raisearch',
 	},
 	icons: {
@@ -24,16 +23,16 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
 	return (
-		<div className="flex min-h-svh w-full items-center justify-center ">
+		<div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
 			<div className="w-full max-w-sm">
-				<div className={'flex flex-col gap-6'}>
+				<div className="w-full max-w-sm flex flex-col gap-6">
+					<div className="flex flex-col gap-2 text-center">
+						<h1 className="text-3xl font-bold">Sign Up</h1>
+						<p className="text-balance text-muted-foreground">
+							Enter your email and password below to create a new account
+						</p>
+					</div>
 					<Card>
-						<CardHeader>
-							<CardTitle>Login to your account</CardTitle>
-							<CardDescription>
-								Enter your email below to login to your account
-							</CardDescription>
-						</CardHeader>
 						<CardContent>
 							<form>
 								<div className="flex flex-col gap-6">
@@ -53,15 +52,15 @@ export default function LoginPage() {
 										/>
 									</div>
 									<div className="flex flex-col gap-3">
-										<Button formAction={login} className="w-full">
-											Login
+										<Button formAction={signup} className="w-full">
+											Sign Up
 										</Button>
 									</div>
 								</div>
 								<div className="mt-4 text-center text-sm">
-									Don&apos;t have an account?{' '}
-									<a href="/signup" className="underline underline-offset-4">
-										Sign up
+									Already have an account?{' '}
+									<a href="/login" className="underline underline-offset-4">
+										Log in
 									</a>
 								</div>
 							</form>
